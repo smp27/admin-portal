@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class SuperadminService {
   
-  baseUri:string = 'http://localhost:4000/api';
+  baseUri:string = 'http://localhost:4200/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
@@ -21,6 +21,12 @@ export class SuperadminService {
     .pipe(
       catchError(this.errorMgmt)
     )
+  }
+
+  // Logout
+  logout() {
+    let url = `${this.baseUri}/logout`;
+    return this.http.get(url);
   }
 
   // Error handling 

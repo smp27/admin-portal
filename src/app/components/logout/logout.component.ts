@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { SuperadminService } from '../../services/superadmin/superadmin.service';
 
 @Component({
   selector: 'app-logout',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private superadminService: SuperadminService, private router: Router) {
+    this.logout();
+  }
+
+  logout() {
+    this.superadminService.logout().subscribe((res) => {
+      this.router.navigateByUrl('/');
+    })
+  }
 
   ngOnInit() {
   }

@@ -41,8 +41,12 @@ export class LoginComponent implements OnInit {
     } else {
       this.superadminService.login(this.editForm.value)
         .subscribe(res => {
-          this.router.navigateByUrl('/dashboard');
-          console.log('Logged In successfully!')
+          if(res.success) {
+            this.router.navigateByUrl('/dashboard');
+            console.log('Logged In successfully!')
+          } else {
+            console.log('Email or Password Invalid!')
+          }
         }, (error) => {
           console.log(error)
         })

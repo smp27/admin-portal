@@ -18,6 +18,8 @@ SuperAdminRoute.route('/login').post((req, res, next) => {
       //passwordHash.generate(req.body.password)
       //passwordHash.verify(req.body.password, data.password)
       if(passwordHash.verify(req.body.password, data.password)) {
+        req.session.loggedInUser = req.body;
+        req.session.save();
         let token = jwt.sign({username: req.body.email},
           config.secret,
           {
@@ -40,8 +42,11 @@ SuperAdminRoute.route('/login').post((req, res, next) => {
 });
 
 // Logout Super Admin
-SuperAdminRoute.route('/logout').post((req, res, next) => {
-  console.log(res);
+SuperAdminRoute.route('/logout').get((req, res, next) => {
+  req.session.destroy();
+  res.json({
+    success: true
+  });
 });
 
 module.exports = SuperAdminRoute;

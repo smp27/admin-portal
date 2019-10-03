@@ -20,7 +20,7 @@ export class ListApplicationsComponent implements OnInit {
   readApplication(){
     this.applicationService.getApplications().subscribe((data) => {
      this.Application = data;
-    })    
+    })
   }
 
   removeApplication(application, index) {

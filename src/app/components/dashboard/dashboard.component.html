@@ -5,4 +5,27 @@
   <a routerLinkActive="active" routerLink="/create-admin">Create Admin</a>
   <a routerLinkActive="active" routerLink="/list-applications">View Applications</a>
   <a routerLinkActive="active" routerLink="/create-application">Create Application</a>
+  <a routerLinkActive="active" routerLink="/logout">Logout</a>
 </nav>
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="table-success">
+      <tr>
+        <th></th>
+        <th *ngFor="let application of Application; let i = index">
+          {{application.name}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of User; let i = index">
+        <td>{{user.name}}</td>
+        <td *ngFor="let application of Application; let i = index">
+          <span>True</span>
+          <span>False</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
