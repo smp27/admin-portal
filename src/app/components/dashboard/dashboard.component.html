@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <a routerLinkActive="active" routerLink="/list-users">View Users</a>
   <a routerLinkActive="active" routerLink="/create-user">Add User</a>
   <a routerLinkActive="active" routerLink="/list-admins">View Admins</a>
@@ -6,7 +6,55 @@
   <a routerLinkActive="active" routerLink="/list-applications">View Applications</a>
   <a routerLinkActive="active" routerLink="/create-application">Create Application</a>
   <a routerLinkActive="active" routerLink="/logout">Logout</a>
+</nav> -->
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">Admin Portal</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActive="active" routerLink="/dashboard">Dashboard
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/create-role">Create Role</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/list-roles">View Roles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/create-adminuser">Create Admin User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/list-adminusers">View Admin Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/create-application">Create Application</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/list-applications">View Applications</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </div>
+  <!-- Collapsible content -->
+
 </nav>
+<!--/.Navbar-->
 
 <div class="container">
   <table class="table table-bordered">
@@ -22,8 +70,7 @@
       <tr *ngFor="let user of User; let i = index">
         <td>{{user.name}}</td>
         <td *ngFor="let application of Application; let i = index">
-          <span>True</span>
-          <span>False</span>
+          <span>True / False</span>
         </td>
       </tr>
     </tbody>
