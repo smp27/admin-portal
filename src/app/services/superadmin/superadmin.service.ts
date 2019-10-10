@@ -32,7 +32,7 @@ export class SuperadminService {
   // Is Logged In
   isLoggedIn() {
     let url = `${this.baseUri}/isLoggedIn`;
-    return true;
+    return this.http.get(url);
   }
 
   // Error handling 
