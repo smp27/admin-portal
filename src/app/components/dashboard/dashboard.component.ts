@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationService } from '../../services/application/application.service';
-import { AdminService } from '../../services/admin/admin.service';
-import { UserService } from '../../services/user/user.service';
+import { AdminuserService } from '../../services/adminuser/adminuser.service';
+import { RoleService } from '../../services/role/role.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,13 +11,13 @@ import { UserService } from '../../services/user/user.service';
 export class DashboardComponent implements OnInit {
 
   Application:any = [];
-  Admin:any = [];
-  User:any = [];
+  Adminuser:any = [];
+  Role:any = [];
 
   constructor(
     private applicationService: ApplicationService, 
-    private adminService: AdminService, 
-    private userService: UserService) {
+    private adminService: AdminuserService, 
+    private roleService: RoleService) {
       this.readApplication();
       this.readAdmin();
       this.readUser();
@@ -34,13 +34,13 @@ export class DashboardComponent implements OnInit {
 
   readAdmin(){
     this.adminService.getAdmins().subscribe((data) => {
-     this.Admin = data;
+     this.Adminuser = data;
     })
   }
 
   readUser(){
-    this.userService.getUsers().subscribe((data) => {
-     this.User = data;
+    this.roleService.getRoles().subscribe((data) => {
+     this.Role = data;
     })
   }
 

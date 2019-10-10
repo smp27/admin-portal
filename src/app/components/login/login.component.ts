@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { SuperadminService } from '../../services/superadmin/superadmin.service';
-import { Admin } from '../../models/admin/admin';
+import { AdminUser } from '../../models/adminuser/adminuser';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class LoginComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
-  AdminData: Admin[];
+  AdminData: AdminUser[];
 
   constructor(
     public fb: FormBuilder,

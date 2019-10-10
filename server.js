@@ -19,8 +19,8 @@ mongoose.connect(dbConfig.db, {
 )
 
 // Setting up routes
-const userRoute = require('./server/routes/user.route');
-const adminRoute = require('./server/routes/admin.route');
+const roleRoute = require('./server/routes/role.route');
+const adminUsersRoute = require('./server/routes/adminuser.route');
 const applicationRoute = require('./server/routes/application.route');
 const superAdminRoute = require('./server/routes/superadmin.route');
 
@@ -41,8 +41,8 @@ app.use(session({
    saveUninitialized: true
 }));
 
-app.use('/api/user', userRoute)
-app.use('/api/admin', adminRoute)
+app.use('/api/role', roleRoute)
+app.use('/api/adminuser', adminUsersRoute)
 app.use('/api/application', applicationRoute);
 app.use('/api', superAdminRoute);
 

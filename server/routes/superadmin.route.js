@@ -20,6 +20,7 @@ SuperAdminRoute.route('/login').post((req, res, next) => {
       if(passwordHash.verify(req.body.password, data.password)) {
         req.session.loggedInUser = req.body;
         req.session.save();
+        // console.log(req.session.loggedInUser);
         let token = jwt.sign({username: req.body.email},
           config.secret,
           {
@@ -47,6 +48,20 @@ SuperAdminRoute.route('/logout').get((req, res, next) => {
   res.json({
     success: true
   });
+});
+
+// Check Session
+SuperAdminRoute.route('/isLoggedIn').get((req, res, next) => {
+  // console.log(req.session.loggedInUser);
+  if(req.session.loggedInUser) {
+    res.json({
+      success: true
+    });
+  } else {
+    res.json({
+      success: false
+    });
+  }
 });
 
 module.exports = SuperAdminRoute;

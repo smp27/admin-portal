@@ -29,6 +29,12 @@ export class SuperadminService {
     return this.http.get(url);
   }
 
+  // Is Logged In
+  isLoggedIn() {
+    let url = `${this.baseUri}/isLoggedIn`;
+    return true;
+  }
+
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';

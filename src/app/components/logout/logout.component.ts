@@ -9,13 +9,20 @@ import { SuperadminService } from '../../services/superadmin/superadmin.service'
 })
 export class LogoutComponent implements OnInit {
 
+  Data: any = [];
+
   constructor(private superadminService: SuperadminService, private router: Router) {
     this.logout();
   }
 
   logout() {
     this.superadminService.logout().subscribe((res) => {
-      this.router.navigateByUrl('/');
+      this.Data = res;
+      if(this.Data.success) {
+        this.router.navigateByUrl('/');
+      } else {
+        this.router.navigateByUrl('/dashboard');
+      }
     })
   }
 
