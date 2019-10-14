@@ -9,6 +9,17 @@ let jwt = require('jsonwebtoken');
 // Super Admin model
 let SuperAdmin = require('../models/superadmin');
 
+// Create Super Admin
+SuperAdminRoute.route('/createSuperAdmin').post((req, res, next) => {
+  SuperAdmin.create({email: res.body.email, password: passwordHash.generate(res.body.password)}, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      console.log('user created');
+    }
+  })
+});
+
 // Login Super Admin
 SuperAdminRoute.route('/login').post((req, res, next) => {
     SuperAdmin.findOne({email: req.body.email}, (error, data) => {

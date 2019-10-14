@@ -1,3 +1,3 @@
 module.exports = {
-    db: 'mongodb://localhost:27017/adminportal'
-  };
+  db: 'mongodb+srv://shaik:fuzen@1325@reliabledatabase-yyc2k.mongodb.net/adminportal?retryWrites=true&w=majority'
+};
