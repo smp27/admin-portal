@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class ApplicationService {
   
-  baseUri:string = 'https://adminportal-e54f8.firebaseapp.com/api/application';
+  baseUri:string = 'https://adminportal-rsrit.herokuapp.com/api/application';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }

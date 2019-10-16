@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class SuperadminService {
   
-  baseUri:string = 'https://adminportal-e54f8.firebaseapp.com/api';
+  baseUri:string = 'https://adminportal-rsrit.herokuapp.com/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
