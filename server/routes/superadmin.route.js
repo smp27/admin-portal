@@ -26,8 +26,6 @@ SuperAdminRoute.route('/login').post((req, res, next) => {
     if (error) {
       return next(error)
     } else {
-      //passwordHash.generate(req.body.password)
-      //passwordHash.verify(req.body.password, data.password)
       if(passwordHash.verify(req.body.password, data.password)) {
         req.session.loggedInUser = req.body;
         req.session.save();
