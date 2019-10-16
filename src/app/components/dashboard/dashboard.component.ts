@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
     private roleService: RoleService) {
       this.readApplication();
       this.readAdmin();
-      this.readUser();
+      this.readRole();
   }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  readUser(){
+  readRole(){
     this.roleService.getRoles().subscribe((data) => {
      this.Role = data;
     })

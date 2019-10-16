@@ -23,6 +23,9 @@ let AdminUser = new Schema({
     },
     linkedinUrl: {
         type: String
+    },
+    role: {
+      type: String
     }
 }, {
    collection: 'adminusers'

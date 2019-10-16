@@ -1,4 +1,5 @@
-<div class="container">
+<app-sidebar></app-sidebar>
+<div class="container-fluid">
     <!-- No data message -->
     <p *ngIf="Role.length <= 0" class="no-data text-center">There is no role added yet!</p>
   
@@ -6,14 +7,14 @@
     <table class="table table-bordered" *ngIf="Role.length > 0">
       <thead class="table-success">
         <tr>
-          <th scope="col">Role ID</th>
+          <!-- <th scope="col">Role ID</th> -->
           <th scope="col">Role</th>
           <th scope="col center">Update</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let role of Role; let i = index">
-          <th scope="row">{{role._id}}</th>
+          <!-- <th scope="row">{{role._id}}</th> -->
           <td>{{role.roleName}}</td>
           <td class="text-center edit-block">
             <span class="edit" [routerLink]="['/edit-role/', role._id]">

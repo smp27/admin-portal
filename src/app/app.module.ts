@@ -17,6 +17,7 @@ import { CreateAdminuserComponent } from './components/create-adminuser/create-a
 import { CreateApplicationComponent } from './components/create-application/create-application.component';
 import { EditApplicationComponent } from './components/edit-application/edit-application.component';
 import { ListApplicationsComponent } from './components/list-applications/list-applications.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { RoleService } from './services/role/role.service';
 import { AdminuserService } from './services/adminuser/adminuser.service';
@@ -38,7 +39,8 @@ import { AuthguardService } from './services/authguard.service';
     CreateAdminuserComponent,
     CreateApplicationComponent,
     EditApplicationComponent,
-    ListApplicationsComponent
+    ListApplicationsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

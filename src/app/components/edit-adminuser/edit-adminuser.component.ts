@@ -2,6 +2,7 @@ import { AdminUser } from '../../models/adminuser/adminuser';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { AdminuserService } from '../../services/adminuser/adminuser.service';
+import { RoleService } from '../../services/role/role.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 
@@ -14,14 +15,24 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class EditAdminuserComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
+  Roles:any = [];
   adminData: AdminUser[];
 
   constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
     private adminService: AdminuserService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private roleService: RoleService
+  ) {
+    this.readRole();
+  }
+
+  readRole(){
+    this.roleService.getRoles().subscribe((data) => {
+     this.Roles = data;
+    })    
+  }
 
   ngOnInit() {
     this.updateAdmin();
@@ -33,17 +44,18 @@ export class EditAdminuserComponent implements OnInit {
       email2: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       email3: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      role: ['', [Validators.required]],
       linkedinUrl: ['', [Validators.required]],
       address: ['', [Validators.required]]
     })
   }
 
   // Choose options with select-dropdown
-  // updateProfile(e) {
-  //   this.editForm.get('designation').setValue(e, {
-  //     onlySelf: true
-  //   })
-  // }
+  updateProfile(e) {
+    this.editForm.get('role').setValue(e, {
+      onlySelf: true
+    })
+  }
 
   // Getter to access form control
   get myForm() {
@@ -59,6 +71,7 @@ export class EditAdminuserComponent implements OnInit {
         email2: data['email2'],
         email3: data['email3'],
         linkedinUrl: data['linkedinUrl'],
+        role: data['role'],
         address: data['address']
       });
     });
@@ -71,6 +84,7 @@ export class EditAdminuserComponent implements OnInit {
       email2: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       email3: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      role: ['', [Validators.required]],
       linkedinUrl: ['', [Validators.required]],
       address: ['', [Validators.required]]
     })

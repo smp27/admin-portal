@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class SuperadminService {
   
-  baseUri:string = 'http://localhost:4200/api';
+  baseUri:string = 'https://adminportal-e54f8.firebaseapp.com/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
@@ -17,7 +17,7 @@ export class SuperadminService {
   // Login
   login(data): Observable<any> {
     let url = `${this.baseUri}/login`;
-    return this.http.post(url, data)
+    return this.http.post(url, data, {responseType: 'text'})
     .pipe(
       catchError(this.errorMgmt)
     )

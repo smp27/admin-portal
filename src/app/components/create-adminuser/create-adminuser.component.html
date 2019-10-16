@@ -1,3 +1,4 @@
+<app-sidebar></app-sidebar>
 <div class="row justify-content-center">
     <div class="col-md-4 register-employee">
       <!-- form card register -->
@@ -61,6 +62,20 @@
               </div>
               <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.pattern">
                 Enter Numbers Only
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword3">Role</label>
+              <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+                formControlName="role">
+                <option value="">Choose...</option>
+                <option *ngFor="let role of Roles" value="{{role.roleName}}">{{role.roleName}}
+                </option>
+              </select>
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.role.errors?.required">
+                Choose role.
               </div>
             </div>
 

@@ -11,7 +11,7 @@ let SuperAdmin = require('../models/superadmin');
 
 // Create Super Admin
 SuperAdminRoute.route('/createSuperAdmin').post((req, res, next) => {
-  SuperAdmin.create({email: res.body.email, password: passwordHash.generate(res.body.password)}, (error, data) => {
+  SuperAdmin.create({email: req.body.email, password: passwordHash.generate(req.body.password)}, (error, data) => {
     if (error) {
       return next(error)
     } else {
